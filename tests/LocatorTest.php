@@ -1,23 +1,23 @@
 <?php
 
-namespace VinceRuby\Tactician\Tests;
+namespace GearHub\Tactician\Tests;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
 
 use Illuminate\Contracts\Container\Container;
 
-use VinceRuby\Tactician\Tests\Stubs\TestLocator;
-use VinceRuby\Tactician\Tests\Stubs\TestCommand;
-use VinceRuby\Tactician\Tests\Stubs\TestWithDefaultCommand;
-use VinceRuby\Tactician\Tests\Stubs\TestCommandHandler;
+use GearHub\Tactician\Tests\Stubs\TestLocator;
+use GearHub\Tactician\Tests\Stubs\TestCommand;
+use GearHub\Tactician\Tests\Stubs\TestWithDefaultCommand;
+use GearHub\Tactician\Tests\Stubs\TestCommandHandler;
 
 class LocatorTest extends PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
 		$this->container = Mockery::mock(Container::class);
-		$this->locator   = new TestLocator($this->container, 'VinceRuby\Tactician\Tests\Stubs', 'VinceRuby\Tactician\Tests\Stubs');
+		$this->locator   = new TestLocator($this->container, 'GearHub\Tactician\Tests\Stubs', 'GearHub\Tactician\Tests\Stubs');
 	}
 
 	public function tearDown()
@@ -26,20 +26,20 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_contain_the_correct_namespaces()
 	{
-		$this->assertEquals($this->locator->command_namespace, 'VinceRuby\Tactician\Tests\Stubs');
-		$this->assertEquals($this->locator->handler_namespace, 'VinceRuby\Tactician\Tests\Stubs');
+		$this->assertEquals($this->locator->command_namespace, 'GearHub\Tactician\Tests\Stubs');
+		$this->assertEquals($this->locator->handler_namespace, 'GearHub\Tactician\Tests\Stubs');
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_return_the_correct_handler()
 	{
@@ -51,11 +51,11 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
 	 *
 	 * @expectedException \League\Tactician\Exception\MissingHandlerException
-	 * 
+	 *
 	 */
 	public function it_should_not_find_the_correct_handler()
 	{

@@ -1,5 +1,5 @@
 {
-    "name": "vinceruby/tactician-for-laravel",
+    "name": "gearhub/tactician-for-laravel",
     "description": "Laravel 5+ wrapper for Tactician",
     "keywords": ["commandbus", "laravel", "tactician"],
     "license": "MIT",
@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "VinceRuby\\Tactician\\": "src/"
+            "GearHub\\Tactician\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VinceRuby\\Tactician\\Tests\\": "tests/"
+            "GearHub\\Tactician\\Tests\\": "tests/"
         }
     },
     "require": {

@@ -1,8 +1,8 @@
 <?php
 
-namespace VinceRuby\Tactician\Tests\Stubs;
+namespace GearHub\Tactician\Tests\Stubs;
 
-use VinceRuby\Tactician\Tests\Stubs\TestCommand;
+use GearHub\Tactician\Tests\Stubs\TestCommand;
 
 class TestCommandHandler
 {

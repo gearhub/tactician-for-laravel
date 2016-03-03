@@ -1,8 +1,8 @@
 <?php
 
-namespace VinceRuby\Tactician\Tests\Stubs;
+namespace GearHub\Tactician\Tests\Stubs;
 
-use VinceRuby\Tactician\Dispatcher;
+use GearHub\Tactician\Dispatcher;
 
 class TestDispatcher extends Dispatcher
 {

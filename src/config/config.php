@@ -53,7 +53,7 @@ return [
 	| implement League\Tactician\Handler\Locator\HandlerLocator interface.
 	|
 	*/
-	'locator' => 'VinceRuby\Tactician\Locator',
+	'locator' => 'GearHub\Tactician\Locator',
 
 	/*
 	|--------------------------------------------------------------------------

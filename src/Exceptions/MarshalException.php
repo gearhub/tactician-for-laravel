@@ -1,6 +1,6 @@
 <?php
 
-namespace VinceRuby\Tactician\Exceptions;
+namespace GearHub\Tactician\Exceptions;
 
 use RuntimeException;
 use ReflectionParameter;
@@ -12,7 +12,7 @@ class MarshalException extends RuntimeException
      *
      * @param  string  $command
      * @param  \ReflectionParameter  $parameter
-     * 
+     *
      * @return void
      */
     public static function whileMapping($command, ReflectionParameter $parameter)

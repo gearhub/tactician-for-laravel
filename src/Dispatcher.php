@@ -1,32 +1,32 @@
 <?php
 
-namespace VinceRuby\Tactician;
+namespace GearHub\Tactician;
 
 use ArrayAccess;
 use ReflectionClass;
 use ReflectionParameter;
 use Illuminate\Support\Collection;
 use League\Tactician\CommandBus;
-use VinceRuby\Tactician\Contracts\Bus\Dispatcher as DispatcherContract;
-use VinceRuby\Tactician\Exceptions\MarshalException;
+use GearHub\Tactician\Contracts\Bus\Dispatcher as DispatcherContract;
+use GearHub\Tactician\Exceptions\MarshalException;
 
 class Dispatcher implements DispatcherContract
 {
     /**
      * Instance for the command bus.
-     * 
+     *
      * @var League\Tactician\CommandBus
-     * 
+     *
      */
     protected $bus;
 
     /**
      * Create new instance of Dispatcher.
-     * 
+     *
      * @param  League\Tactician\CommandBus $bus
      *
      * @return void
-     * 
+     *
      */
     function __construct(CommandBus $bus)
     {
@@ -35,11 +35,11 @@ class Dispatcher implements DispatcherContract
 
     /**
      * Dispatch a command to its respective handler.
-     * 
+     *
      * @param  mixed $command
-     * 
+     *
      * @return mixed
-     * 
+     *
      */
     public function dispatch($command)
     {
@@ -48,13 +48,13 @@ class Dispatcher implements DispatcherContract
 
     /**
      * Marshal a command and dispatch it to its respective handler.
-     * 
+     *
      * @param  mixed       $command
      * @param  ArrayAccess $source
      * @param  array       $extras
-     * 
+     *
      * @return mixed
-     * 
+     *
      */
     public function dispatchFrom($command, ArrayAccess $source, array $extras = [])
     {
@@ -66,9 +66,9 @@ class Dispatcher implements DispatcherContract
      *
      * @param  mixed  $command
      * @param  array  $array
-     * 
+     *
      * @return mixed
-     * 
+     *
      */
     public function dispatchFromArray($command, array $array)
     {
@@ -77,13 +77,13 @@ class Dispatcher implements DispatcherContract
 
     /**
      * Marshal a command from the given array accessible object.
-     * 
+     *
      * @param  string      $command
      * @param  ArrayAccess $source
      * @param  array       $extras
-     * 
+     *
      * @return mixed
-     * 
+     *
      */
     protected function marshal($command, ArrayAccess $source, array $extras = [])
     {
@@ -100,7 +100,7 @@ class Dispatcher implements DispatcherContract
 
         }
 
-        return $reflection->newInstanceArgs($injected);        
+        return $reflection->newInstanceArgs($injected);
     }
 
     /**
@@ -108,9 +108,9 @@ class Dispatcher implements DispatcherContract
      *
      * @param  string $command
      * @param  array  $array
-     * 
+     *
      * @return mixed
-     * 
+     *
      */
     protected function marshalFromArray($command, array $array)
     {
@@ -124,9 +124,9 @@ class Dispatcher implements DispatcherContract
      * @param  ArrayAccess         $source
      * @param  ReflectionParameter $parameter
      * @param  array               $extras
-     * 
+     *
      * @return mixed
-     * 
+     *
      */
     protected function getParameterValueForCommand($command, ArrayAccess $source, ReflectionParameter $parameter, array $extras = [])
     {
@@ -147,7 +147,7 @@ class Dispatcher implements DispatcherContract
             return $parameter->getDefaultValue();
 
         }
-        
+
         MarshalException::whileMapping($command, $parameter);
     }
 }

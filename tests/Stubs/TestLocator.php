@@ -1,8 +1,8 @@
 <?php
 
-namespace VinceRuby\Tactician\Tests\Stubs;
+namespace GearHub\Tactician\Tests\Stubs;
 
-use VinceRuby\Tactician\Locator;
+use GearHub\Tactician\Locator;
 
 class TestLocator extends Locator
 {

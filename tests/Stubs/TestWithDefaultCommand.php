@@ -1,6 +1,6 @@
 <?php
 
-namespace VinceRuby\Tactician\Tests\Stubs;
+namespace GearHub\Tactician\Tests\Stubs;
 
 class TestWithDefaultCommand
 {

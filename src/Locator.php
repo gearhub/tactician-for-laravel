@@ -1,6 +1,6 @@
 <?php
 
-namespace VinceRuby\Tactician;
+namespace GearHub\Tactician;
 
 use Illuminate\Contracts\Container\Container;
 use League\Tactician\Exception\MissingHandlerException;
@@ -10,37 +10,37 @@ class Locator implements HandlerLocator
 {
     /**
      * The container instance.
-     * 
+     *
      * @var Illuminate\Contracts\Container\Container
-     * 
+     *
      */
     protected $container;
 
     /**
      * Base namespace for commands.
-     * 
+     *
      * @var string
-     * 
+     *
      */
     protected $command_namespace;
 
     /**
      * Base namespace for command handlers.
-     * 
+     *
      * @var string
-     * 
+     *
      */
     protected $handler_namespace;
 
     /**
      * Create new instance of Locator.
-     * 
+     *
      * @param  Illuminate\Contracts\Container\Container $container
      * @param  string                                   $command_namespace
      * @param  string                                   $handler_namespace
      *
      * @return void
-     * 
+     *
      */
     public function __construct(Container $container, $command_namespace, $handler_namespace)
     {
@@ -55,7 +55,7 @@ class Locator implements HandlerLocator
      * @param  string $command_name
      *
      * @return mixed
-     * 
+     *
      * @throws MissingHandlerException
      *
      */
@@ -71,7 +71,7 @@ class Locator implements HandlerLocator
         }
 
         $handler = $this->container->make($handlerName);
-        
+
         return $handler;
     }
 }

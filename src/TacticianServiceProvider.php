@@ -1,6 +1,6 @@
 <?php
 
-namespace VinceRuby\Tactician;
+namespace GearHub\Tactician;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
@@ -8,8 +8,8 @@ use Illuminate\Support\ServiceProvider;
 use League\Tactician\CommandBus;
 use League\Tactician\Handler\CommandHandlerMiddleware;
 
-use VinceRuby\Tactician\Dispatcher;
-use VinceRuby\Tactician\Locator;
+use GearHub\Tactician\Dispatcher;
+use GearHub\Tactician\Locator;
 
 class TacticianServiceProvider extends ServiceProvider
 {
@@ -17,7 +17,7 @@ class TacticianServiceProvider extends ServiceProvider
      * Boot the service provider.
      *
      * @return void
-     * 
+     *
      */
 	public function boot()
     {
@@ -32,7 +32,7 @@ class TacticianServiceProvider extends ServiceProvider
      * Register the service provider.
      *
      * @return void
-     * 
+     *
      */
     public function register()
     {
@@ -51,7 +51,7 @@ class TacticianServiceProvider extends ServiceProvider
      * Bind some interfaces and implementations.
      *
      * @return void
-     * 
+     *
      */
     protected function bootBindings()
     {
@@ -75,16 +75,16 @@ class TacticianServiceProvider extends ServiceProvider
     		return $app['tactician.locator'];
     	};
 
-    	$this->app['VinceRuby\Tactician\Contracts\Bus\Dispatcher'] = function($app) {
+    	$this->app['GearHub\Tactician\Contracts\Bus\Dispatcher'] = function($app) {
     		return $app['tactician.dispatcher'];
     	};
     }
 
     /**
      * Register bindings for the Command Handler.
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function registerCommandBus()
     {
@@ -97,9 +97,9 @@ class TacticianServiceProvider extends ServiceProvider
 
     /**
      * Register bindings for the Command Handler.
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function registerCommandHandler()
     {
@@ -117,9 +117,9 @@ class TacticianServiceProvider extends ServiceProvider
 
     /**
      * Register bindings for the Dispatcher.
-     * 
+     *
      * @return void
-     * 
+     *
      */
     public function registerDispatcher()
     {
@@ -132,9 +132,9 @@ class TacticianServiceProvider extends ServiceProvider
 
     /**
      * Register bindings for the Command Name Extractor.
-     * 
+     *
      * @return void
-     * 
+     *
      */
     protected function registerExtractor()
     {
@@ -142,14 +142,14 @@ class TacticianServiceProvider extends ServiceProvider
 
     		return $app->make($this->config('extractor'));
 
-    	});    	
+    	});
     }
 
     /**
      * Register bindings for the Method Name Inflector.
-     * 
+     *
      * @return void
-     * 
+     *
      */
     protected function registerInflector()
     {
@@ -157,14 +157,14 @@ class TacticianServiceProvider extends ServiceProvider
 
     		return $app->make($this->config('inflector'));
 
-    	});    	
+    	});
     }
 
     /**
      * Register bindings for the Handler Locator.
-     * 
+     *
      * @return void
-     * 
+     *
      */
     protected function registerLocator()
     {
@@ -181,9 +181,9 @@ class TacticianServiceProvider extends ServiceProvider
 
     /**
      * Register bindings for all the middleware.
-     * 
+     *
      * @return void
-     * 
+     *
      */
     protected function registerMiddleware()
     {
@@ -196,7 +196,7 @@ class TacticianServiceProvider extends ServiceProvider
                 if (is_string($name)) {
                     return $this->app->make($name);
                 }
-                
+
                 return $name;
 
 	    	}, $middleware);
@@ -212,9 +212,9 @@ class TacticianServiceProvider extends ServiceProvider
      * Helper to get the config values
      *
      * @param  string $key
-     * 
+     *
      * @return string
-     * 
+     *
      */
     protected function config($key, $default = null)
     {

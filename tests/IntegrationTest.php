@@ -1,6 +1,6 @@
 <?php
 
-namespace VinceRuby\Tactician\Tests;
+namespace GearHub\Tactician\Tests;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
@@ -13,18 +13,18 @@ use League\Tactician\Handler\CommandHandlerMiddleware;
 use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
 use League\Tactician\Handler\MethodNameInflector\HandleInflector;
 
-use VinceRuby\Tactician\Dispatcher;
-use VinceRuby\Tactician\Locator;
-use VinceRuby\Tactician\Tests\Stubs\TestCommand;
-use VinceRuby\Tactician\Tests\Stubs\TestCommandHandler;
-use VinceRuby\Tactician\Tests\Stubs\TestWithDefaultCommand;
+use GearHub\Tactician\Dispatcher;
+use GearHub\Tactician\Locator;
+use GearHub\Tactician\Tests\Stubs\TestCommand;
+use GearHub\Tactician\Tests\Stubs\TestCommandHandler;
+use GearHub\Tactician\Tests\Stubs\TestWithDefaultCommand;
 
 class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
 		$this->container          = Mockery::mock(Container::class);
-		$this->locator            = new Locator($this->container, 'VinceRuby\Tactician\Tests\Stubs', 'VinceRuby\Tactician\Tests\Stubs');
+		$this->locator            = new Locator($this->container, 'GearHub\Tactician\Tests\Stubs', 'GearHub\Tactician\Tests\Stubs');
         $this->handler_middleware = new CommandHandlerMiddleware(new ClassNameExtractor(), $this->locator, new HandleInflector());
         $this->commandbus         = new CommandBus([$this->handler_middleware]);
         $this->dispatcher         = new Dispatcher($this->commandbus);
@@ -36,9 +36,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_handle_the_command_successfully_using_dispatch()
 	{
@@ -51,9 +51,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_handle_the_command_successfully_using_dispatch_from_with_no_extras()
 	{
@@ -66,9 +66,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_handle_the_command_successfully_using_dispatch_from_with_extras()
 	{
@@ -81,11 +81,11 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
 	 *
 	 * @expectedException \League\Tactician\Exception\MissingHandlerException
-	 * 
+	 *
 	 */
 	public function it_should_not_handle_the_command_successfully_using_dispatch()
 	{
@@ -100,9 +100,9 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	/**
 	 *
 	 * @test
-	 * 
-	 * @expectedException \VinceRuby\Tactician\Exceptions\MarshalException
-	 * 
+	 *
+	 * @expectedException \GearHub\Tactician\Exceptions\MarshalException
+	 *
 	 */
 	public function it_should_fail_building_the_command()
 	{

@@ -1,6 +1,6 @@
 <?php
 
-namespace VinceRuby\Tactician\Tests;
+namespace GearHub\Tactician\Tests;
 
 use Mockery;
 use PHPUnit_Framework_TestCase;
@@ -9,9 +9,9 @@ use Illuminate\Support\Collection;
 
 use League\Tactician\CommandBus;
 
-use VinceRuby\Tactician\Tests\Stubs\TestCommand;
-use VinceRuby\Tactician\Tests\Stubs\TestDispatcher;
-use VinceRuby\Tactician\Tests\Stubs\TestWithDefaultCommand;
+use GearHub\Tactician\Tests\Stubs\TestCommand;
+use GearHub\Tactician\Tests\Stubs\TestDispatcher;
+use GearHub\Tactician\Tests\Stubs\TestWithDefaultCommand;
 
 class DispatcherTest extends PHPUnit_Framework_TestCase
 {
@@ -27,9 +27,9 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_return_foo_using_dispatch()
 	{
@@ -41,9 +41,9 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_return_foo_using_dispatch_from()
 	{
@@ -55,9 +55,9 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_return_foo_using_dispatch_from_array()
 	{
@@ -67,9 +67,9 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_return_a_command_object_and_the_data_using_marshal_no_extras()
 	{
@@ -81,24 +81,24 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_return_a_command_object_and_the_data_using_marshal_with_extras()
 	{
 		$collection = new Collection(['data' => 'foo']);
 		$command    = $this->dispatcher->marshal(TestCommand::class, $collection, ['data' => 'bar']);
 
-		$this->assertInstanceOf(TestCommand::class, $command);		
+		$this->assertInstanceOf(TestCommand::class, $command);
 		$this->assertEquals($command->data, 'bar');
 		$this->assertNotEquals($command->data, 'foo');
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
+	 *
 	 */
 	public function it_should_return_a_command_object_and_the_data_using_marshal_from_array()
 	{
@@ -109,10 +109,10 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
-	 */	
+	 *
+	 */
 	public function it_should_return_a_command_object_with_data_set_to_null()
 	{
 		$collection = new Collection(['foo' => 'bar']);
@@ -123,10 +123,10 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * 
+	 *
 	 * @test
-	 * 
-	 */	
+	 *
+	 */
 	public function it_should_return_a_command_object_with_data_and_disregard_bar()
 	{
 		$collection = new Collection(['data' => 'foo', 'bar' => 'baz']);
@@ -139,9 +139,9 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	/**
 	 *
 	 * @test
-	 * 
-	 * @expectedException \VinceRuby\Tactician\Exceptions\MarshalException
-	 * 
+	 *
+	 * @expectedException \GearHub\Tactician\Exceptions\MarshalException
+	 *
 	 */
 	public function it_should_fail_using_marshal()
 	{
