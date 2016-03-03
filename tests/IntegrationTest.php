@@ -36,9 +36,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_handle_the_command_successfully_using_dispatch()
 	{
@@ -51,9 +49,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_handle_the_command_successfully_using_dispatch_from_with_no_extras()
 	{
@@ -66,9 +62,7 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_handle_the_command_successfully_using_dispatch_from_with_extras()
 	{
@@ -81,11 +75,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 * @expectedException \League\Tactician\Exception\MissingHandlerException
-	 *
 	 */
 	public function it_should_not_handle_the_command_successfully_using_dispatch()
 	{
@@ -98,11 +89,8 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 * @expectedException \GearHub\Tactician\Exceptions\MarshalException
-	 *
 	 */
 	public function it_should_fail_building_the_command()
 	{

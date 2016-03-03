@@ -16,7 +16,6 @@ class Dispatcher implements DispatcherContract
      * Instance for the command bus.
      *
      * @var League\Tactician\CommandBus
-     *
      */
     protected $bus;
 
@@ -26,7 +25,6 @@ class Dispatcher implements DispatcherContract
      * @param  League\Tactician\CommandBus $bus
      *
      * @return void
-     *
      */
     function __construct(CommandBus $bus)
     {
@@ -39,7 +37,6 @@ class Dispatcher implements DispatcherContract
      * @param  mixed $command
      *
      * @return mixed
-     *
      */
     public function dispatch($command)
     {
@@ -54,7 +51,6 @@ class Dispatcher implements DispatcherContract
      * @param  array       $extras
      *
      * @return mixed
-     *
      */
     public function dispatchFrom($command, ArrayAccess $source, array $extras = [])
     {
@@ -68,7 +64,6 @@ class Dispatcher implements DispatcherContract
      * @param  array  $array
      *
      * @return mixed
-     *
      */
     public function dispatchFromArray($command, array $array)
     {
@@ -83,7 +78,6 @@ class Dispatcher implements DispatcherContract
      * @param  array       $extras
      *
      * @return mixed
-     *
      */
     protected function marshal($command, ArrayAccess $source, array $extras = [])
     {
@@ -110,7 +104,6 @@ class Dispatcher implements DispatcherContract
      * @param  array  $array
      *
      * @return mixed
-     *
      */
     protected function marshalFromArray($command, array $array)
     {
@@ -126,7 +119,6 @@ class Dispatcher implements DispatcherContract
      * @param  array               $extras
      *
      * @return mixed
-     *
      */
     protected function getParameterValueForCommand($command, ArrayAccess $source, ReflectionParameter $parameter, array $extras = [])
     {

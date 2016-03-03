@@ -12,7 +12,6 @@ trait DispatchesCommands
      * @param  mixed $command
      *
      * @return mixed
-     *
      */
     protected function dispatch($command)
     {
@@ -27,7 +26,6 @@ trait DispatchesCommands
      * @param  array       $extras
      *
      * @return mixed
-     *
      */
     protected function dispatchFrom($command, ArrayAccess $source, array $extras = [])
     {
@@ -41,7 +39,6 @@ trait DispatchesCommands
      * @param  array  $array
      *
      * @return mixed
-     *
      */
     protected function dispatchFromArray($command, array $array)
     {

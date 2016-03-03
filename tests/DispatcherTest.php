@@ -27,9 +27,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_foo_using_dispatch()
 	{
@@ -41,9 +39,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_foo_using_dispatch_from()
 	{
@@ -55,9 +51,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_foo_using_dispatch_from_array()
 	{
@@ -67,9 +61,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_a_command_object_and_the_data_using_marshal_no_extras()
 	{
@@ -81,9 +73,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_a_command_object_and_the_data_using_marshal_with_extras()
 	{
@@ -96,9 +86,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_a_command_object_and_the_data_using_marshal_from_array()
 	{
@@ -109,9 +97,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_a_command_object_with_data_set_to_null()
 	{
@@ -123,9 +109,7 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_a_command_object_with_data_and_disregard_bar()
 	{
@@ -137,11 +121,8 @@ class DispatcherTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 * @expectedException \GearHub\Tactician\Exceptions\MarshalException
-	 *
 	 */
 	public function it_should_fail_using_marshal()
 	{

@@ -26,9 +26,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_contain_the_correct_namespaces()
 	{
@@ -37,9 +35,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 */
 	public function it_should_return_the_correct_handler()
 	{
@@ -51,11 +47,8 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 *
 	 * @test
-	 *
 	 * @expectedException \League\Tactician\Exception\MissingHandlerException
-	 *
 	 */
 	public function it_should_not_find_the_correct_handler()
 	{

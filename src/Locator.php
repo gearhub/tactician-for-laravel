@@ -12,7 +12,6 @@ class Locator implements HandlerLocator
      * The container instance.
      *
      * @var Illuminate\Contracts\Container\Container
-     *
      */
     protected $container;
 
@@ -20,7 +19,6 @@ class Locator implements HandlerLocator
      * Base namespace for commands.
      *
      * @var string
-     *
      */
     protected $command_namespace;
 
@@ -28,7 +26,6 @@ class Locator implements HandlerLocator
      * Base namespace for command handlers.
      *
      * @var string
-     *
      */
     protected $handler_namespace;
 
@@ -40,7 +37,6 @@ class Locator implements HandlerLocator
      * @param  string                                   $handler_namespace
      *
      * @return void
-     *
      */
     public function __construct(Container $container, $command_namespace, $handler_namespace)
     {
@@ -57,7 +53,6 @@ class Locator implements HandlerLocator
      * @return mixed
      *
      * @throws MissingHandlerException
-     *
      */
     public function getHandlerForCommand($command_name)
     {

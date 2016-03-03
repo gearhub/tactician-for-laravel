@@ -13,7 +13,6 @@ interface Dispatcher
      * @param  mixed $command
      *
      * @return mixed
-     *
      */
     public function dispatch($command);
 
@@ -25,7 +24,6 @@ interface Dispatcher
      * @param  array       $extras
      *
      * @return mixed
-     *
      */
     public function dispatchFrom($command, ArrayAccess $source, array $extras = []);
 
@@ -36,7 +34,6 @@ interface Dispatcher
      * @param  array  $array
      *
      * @return mixed
-     *
      */
     public function dispatchFromArray($command, array $array);
 }

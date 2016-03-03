@@ -17,7 +17,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Boot the service provider.
      *
      * @return void
-     *
      */
 	public function boot()
     {
@@ -32,7 +31,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register the service provider.
      *
      * @return void
-     *
      */
     public function register()
     {
@@ -51,7 +49,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Bind some interfaces and implementations.
      *
      * @return void
-     *
      */
     protected function bootBindings()
     {
@@ -84,7 +81,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register bindings for the Command Handler.
      *
      * @return void
-     *
      */
     public function registerCommandBus()
     {
@@ -99,7 +95,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register bindings for the Command Handler.
      *
      * @return void
-     *
      */
     public function registerCommandHandler()
     {
@@ -119,7 +114,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register bindings for the Dispatcher.
      *
      * @return void
-     *
      */
     public function registerDispatcher()
     {
@@ -134,7 +128,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register bindings for the Command Name Extractor.
      *
      * @return void
-     *
      */
     protected function registerExtractor()
     {
@@ -149,7 +142,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register bindings for the Method Name Inflector.
      *
      * @return void
-     *
      */
     protected function registerInflector()
     {
@@ -164,7 +156,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register bindings for the Handler Locator.
      *
      * @return void
-     *
      */
     protected function registerLocator()
     {
@@ -183,7 +174,6 @@ class TacticianServiceProvider extends ServiceProvider
      * Register bindings for all the middleware.
      *
      * @return void
-     *
      */
     protected function registerMiddleware()
     {
@@ -214,7 +204,6 @@ class TacticianServiceProvider extends ServiceProvider
      * @param  string $key
      *
      * @return string
-     *
      */
     protected function config($key, $default = null)
     {
