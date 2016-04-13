@@ -13,7 +13,7 @@ trait DispatchesCommands
      *
      * @return mixed
      */
-    protected function dispatch($command)
+    protected function dispatchCommand($command)
     {
         return app('tactician.dispatcher')->dispatch($command);
     }
@@ -27,7 +27,7 @@ trait DispatchesCommands
      *
      * @return mixed
      */
-    protected function dispatchFrom($command, ArrayAccess $source, array $extras = [])
+    protected function dispatchCommandFrom($command, ArrayAccess $source, array $extras = [])
     {
     	return app('tactician.dispatcher')->dispatchFrom($command, $source, $extras);
     }
@@ -40,7 +40,7 @@ trait DispatchesCommands
      *
      * @return mixed
      */
-    protected function dispatchFromArray($command, array $array)
+    protected function dispatchCommandFromArray($command, array $array)
     {
         return app('tactician.dispatcher')->dispatchFromArray($command, $array);
     }
