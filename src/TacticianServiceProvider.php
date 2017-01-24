@@ -84,10 +84,8 @@ class TacticianServiceProvider extends ServiceProvider
      */
     public function registerCommandBus()
     {
-        $this->app['tactician.commandbus'] = $this->app->share(function($app) {
-
+        $this->app->singleton('tactician.commandbus', function($app) {
             return new CommandBus($app['tactician.middleware']);
-
         });
     }
 
@@ -98,14 +96,12 @@ class TacticianServiceProvider extends ServiceProvider
      */
     public function registerCommandHandler()
     {
-        $this->app['tactician.handler'] = $this->app->share(function($app) {
-
+        $this->app->singleton('tactician.handler', function($app) {
             return new CommandHandlerMiddleware(
                 $app['tactician.extractor'],
                 $app['tactician.locator'],
                 $app['tactician.inflector']
             );
-
         });
     }
 
@@ -117,10 +113,8 @@ class TacticianServiceProvider extends ServiceProvider
      */
     public function registerDispatcher()
     {
-        $this->app['tactician.dispatcher'] = $this->app->share(function($app) {
-
+        $this->app->singleton('tactician.dispatcher', function($app) {
             return new Dispatcher($app['tactician.commandbus']);
-
         });
     }
 
@@ -131,10 +125,8 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function registerExtractor()
     {
-        $this->app['tactician.extractor'] = $this->app->share(function($app) {
-
+        $this->app->singleton('tactician.extractor', function($app) {
             return $app->make($this->config('extractor'));
-
         });
     }
 
@@ -145,10 +137,8 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function registerInflector()
     {
-        $this->app['tactician.inflector'] = $this->app->share(function($app) {
-
+        $this->app->singleton('tactician.inflector', function($app) {
             return $app->make($this->config('inflector'));
-
         });
     }
 
@@ -159,7 +149,7 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function registerLocator()
     {
-        $this->app['tactician.locator'] = $this->app->share(function($app) {
+        $this->app->singleton('tactician.locator', function($app) {
 
             $command_namespace = $this->config('command_namespace');
             $handler_namespace = $this->config('handler_namespace');
@@ -178,11 +168,8 @@ class TacticianServiceProvider extends ServiceProvider
     protected function registerMiddleware()
     {
         $this->app->bind('tactician.middleware', function() {
-
             $middleware = $this->config('middleware');
-
             $resolved   = array_map(function($name) {
-
                 if (is_string($name)) {
                     return $this->app->make($name);
                 }
@@ -194,12 +181,11 @@ class TacticianServiceProvider extends ServiceProvider
             $resolved[] = $this->app['tactician.handler'];
 
             return $resolved;
-
         });
     }
 
     /**
-     * Helper to get the config values
+     * Helper to get the config values.
      *
      * @param  string $key
      *
