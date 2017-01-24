@@ -155,7 +155,7 @@ class TacticianServiceProvider extends ServiceProvider
             $handler_namespace = $this->config('handler_namespace');
             $locator           = $this->config('locator');
 
-            return $app->make($locator, [$this->app, $command_namespace, $handler_namespace]);
+            return (new $locator($this->app, $command_namespace, $handler_namespace));
         });
     }
 
@@ -173,9 +173,7 @@ class TacticianServiceProvider extends ServiceProvider
                 if (is_string($name)) {
                     return $this->app->make($name);
                 }
-
                 return $name;
-
             }, $middleware);
 
             $resolved[] = $this->app['tactician.handler'];
