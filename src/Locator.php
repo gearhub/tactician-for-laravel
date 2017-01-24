@@ -60,9 +60,7 @@ class Locator implements HandlerLocator
         $handlerName = $this->handlerNamespace.'\\'.trim($command, '\\').'Handler';
 
         if (!class_exists($handlerName)) {
-
             throw MissingHandlerException::forCommand($commandName);
-
         }
 
         $handler = $this->container->make($handlerName);

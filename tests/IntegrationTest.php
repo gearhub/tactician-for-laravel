@@ -2,22 +2,19 @@
 
 namespace GearHub\Tactician\Tests;
 
-use Mockery;
-use PHPUnit_Framework_TestCase;
-
-use Illuminate\Contracts\Container\Container;
-use Illuminate\Support\Collection;
-
-use League\Tactician\CommandBus;
-use League\Tactician\Handler\CommandHandlerMiddleware;
-use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
-use League\Tactician\Handler\MethodNameInflector\HandleInflector;
-
 use GearHub\Tactician\Dispatcher;
 use GearHub\Tactician\Locator;
 use GearHub\Tactician\Tests\Stubs\TestCommand;
 use GearHub\Tactician\Tests\Stubs\TestCommandHandler;
 use GearHub\Tactician\Tests\Stubs\TestWithDefaultCommand;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Support\Collection;
+use League\Tactician\CommandBus;
+use League\Tactician\Handler\CommandHandlerMiddleware;
+use League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor;
+use League\Tactician\Handler\MethodNameInflector\HandleInflector;
+use Mockery;
+use PHPUnit_Framework_TestCase;
 
 class IntegrationTest extends PHPUnit_Framework_TestCase
 {

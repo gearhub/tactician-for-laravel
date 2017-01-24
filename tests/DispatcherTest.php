@@ -2,16 +2,13 @@
 
 namespace GearHub\Tactician\Tests;
 
-use Mockery;
-use PHPUnit_Framework_TestCase;
-
-use Illuminate\Support\Collection;
-
-use League\Tactician\CommandBus;
-
 use GearHub\Tactician\Tests\Stubs\TestCommand;
 use GearHub\Tactician\Tests\Stubs\TestDispatcher;
 use GearHub\Tactician\Tests\Stubs\TestWithDefaultCommand;
+use Illuminate\Support\Collection;
+use League\Tactician\CommandBus;
+use Mockery;
+use PHPUnit_Framework_TestCase;
 
 class DispatcherTest extends PHPUnit_Framework_TestCase
 {

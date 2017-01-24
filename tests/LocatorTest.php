@@ -2,15 +2,13 @@
 
 namespace GearHub\Tactician\Tests;
 
+use GearHub\Tactician\Tests\Stubs\TestCommand;
+use GearHub\Tactician\Tests\Stubs\TestCommandHandler;
+use GearHub\Tactician\Tests\Stubs\TestLocator;
+use GearHub\Tactician\Tests\Stubs\TestWithDefaultCommand;
+use Illuminate\Contracts\Container\Container;
 use Mockery;
 use PHPUnit_Framework_TestCase;
-
-use Illuminate\Contracts\Container\Container;
-
-use GearHub\Tactician\Tests\Stubs\TestLocator;
-use GearHub\Tactician\Tests\Stubs\TestCommand;
-use GearHub\Tactician\Tests\Stubs\TestWithDefaultCommand;
-use GearHub\Tactician\Tests\Stubs\TestCommandHandler;
 
 class LocatorTest extends PHPUnit_Framework_TestCase
 {

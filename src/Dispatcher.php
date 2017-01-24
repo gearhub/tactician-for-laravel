@@ -3,12 +3,12 @@
 namespace GearHub\Tactician;
 
 use ArrayAccess;
-use ReflectionClass;
-use ReflectionParameter;
-use Illuminate\Support\Collection;
-use League\Tactician\CommandBus;
 use GearHub\Tactician\Contracts\Bus\Dispatcher as DispatcherContract;
 use GearHub\Tactician\Exceptions\MarshalException;
+use Illuminate\Support\Collection;
+use League\Tactician\CommandBus;
+use ReflectionClass;
+use ReflectionParameter;
 
 class Dispatcher implements DispatcherContract
 {
@@ -85,13 +85,9 @@ class Dispatcher implements DispatcherContract
         $reflection = new ReflectionClass($command);
 
         if ($constructor = $reflection->getConstructor()) {
-
             $injected = array_map(function ($parameter) use ($command, $source, $extras) {
-
                 return $this->getParameterValueForCommand($command, $source, $parameter, $extras);
-
             }, $constructor->getParameters());
-
         }
 
         return $reflection->newInstanceArgs($injected);
@@ -123,21 +119,15 @@ class Dispatcher implements DispatcherContract
     protected function getParameterValueForCommand($command, ArrayAccess $source, ReflectionParameter $parameter, array $extras = [])
     {
         if (array_key_exists($parameter->name, $extras)) {
-
             return $extras[$parameter->name];
-
         }
 
         if (isset($source[$parameter->name])) {
-
             return $source[$parameter->name];
-
         }
 
         if ($parameter->isDefaultValueAvailable()) {
-
             return $parameter->getDefaultValue();
-
         }
 
         MarshalException::whileMapping($command, $parameter);
