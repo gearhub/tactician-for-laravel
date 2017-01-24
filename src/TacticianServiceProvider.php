@@ -18,7 +18,7 @@ class TacticianServiceProvider extends ServiceProvider
      *
      * @return void
      */
-	public function boot()
+    public function boot()
     {
         $this->publishes([
             __DIR__.'/config/config.php' => config_path('tactician.php')
@@ -52,29 +52,29 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function bootBindings()
     {
-    	$this->app['League\Tactician\CommandBus'] = function($app) {
-    		return $app['tactician.commandbus'];
-    	};
+        $this->app['League\Tactician\CommandBus'] = function($app) {
+            return $app['tactician.commandbus'];
+        };
 
-    	$this->app['League\Tactician\Handler\CommandHandlerMiddleware'] = function($app) {
-    		return $app['tactician.handler'];
-    	};
+        $this->app['League\Tactician\Handler\CommandHandlerMiddleware'] = function($app) {
+            return $app['tactician.handler'];
+        };
 
-    	$this->app['League\Tactician\Handler\CommandNameExtractor\CommandNameExtractor'] = function($app) {
-    		return $app['tactician.extractor'];
-    	};
+        $this->app['League\Tactician\Handler\CommandNameExtractor\CommandNameExtractor'] = function($app) {
+            return $app['tactician.extractor'];
+        };
 
-    	$this->app['League\Tactician\Handler\MethodNameInflector\MethodNameInflector'] = function($app) {
-    		return $app['tactician.inflector'];
-    	};
+        $this->app['League\Tactician\Handler\MethodNameInflector\MethodNameInflector'] = function($app) {
+            return $app['tactician.inflector'];
+        };
 
-    	$this->app['League\Tactician\Handler\Locator\HandlerLocator'] = function($app) {
-    		return $app['tactician.locator'];
-    	};
+        $this->app['League\Tactician\Handler\Locator\HandlerLocator'] = function($app) {
+            return $app['tactician.locator'];
+        };
 
-    	$this->app['GearHub\Tactician\Contracts\Bus\Dispatcher'] = function($app) {
-    		return $app['tactician.dispatcher'];
-    	};
+        $this->app['GearHub\Tactician\Contracts\Bus\Dispatcher'] = function($app) {
+            return $app['tactician.dispatcher'];
+        };
     }
 
     /**
@@ -84,11 +84,11 @@ class TacticianServiceProvider extends ServiceProvider
      */
     public function registerCommandBus()
     {
-    	$this->app['tactician.commandbus'] = $this->app->share(function($app) {
+        $this->app['tactician.commandbus'] = $this->app->share(function($app) {
 
-    		return new CommandBus($app['tactician.middleware']);
+            return new CommandBus($app['tactician.middleware']);
 
-    	});
+        });
     }
 
     /**
@@ -98,15 +98,15 @@ class TacticianServiceProvider extends ServiceProvider
      */
     public function registerCommandHandler()
     {
-    	$this->app['tactician.handler'] = $this->app->share(function($app) {
+        $this->app['tactician.handler'] = $this->app->share(function($app) {
 
-    		return new CommandHandlerMiddleware(
-    			$app['tactician.extractor'],
-    			$app['tactician.locator'],
-    			$app['tactician.inflector']
-    		);
+            return new CommandHandlerMiddleware(
+                $app['tactician.extractor'],
+                $app['tactician.locator'],
+                $app['tactician.inflector']
+            );
 
-    	});
+        });
     }
 
 
@@ -117,11 +117,11 @@ class TacticianServiceProvider extends ServiceProvider
      */
     public function registerDispatcher()
     {
-    	$this->app['tactician.dispatcher'] = $this->app->share(function($app) {
+        $this->app['tactician.dispatcher'] = $this->app->share(function($app) {
 
-    		return new Dispatcher($app['tactician.commandbus']);
+            return new Dispatcher($app['tactician.commandbus']);
 
-    	});
+        });
     }
 
     /**
@@ -131,11 +131,11 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function registerExtractor()
     {
-    	$this->app['tactician.extractor'] = $this->app->share(function($app) {
+        $this->app['tactician.extractor'] = $this->app->share(function($app) {
 
-    		return $app->make($this->config('extractor'));
+            return $app->make($this->config('extractor'));
 
-    	});
+        });
     }
 
     /**
@@ -145,11 +145,11 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function registerInflector()
     {
-    	$this->app['tactician.inflector'] = $this->app->share(function($app) {
+        $this->app['tactician.inflector'] = $this->app->share(function($app) {
 
-    		return $app->make($this->config('inflector'));
+            return $app->make($this->config('inflector'));
 
-    	});
+        });
     }
 
     /**
@@ -159,14 +159,14 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function registerLocator()
     {
-    	$this->app['tactician.locator'] = $this->app->share(function($app) {
+        $this->app['tactician.locator'] = $this->app->share(function($app) {
 
-    		$command_namespace = $this->config('command_namespace');
-    		$handler_namespace = $this->config('handler_namespace');
-    		$locator           = $this->config('locator');
+            $command_namespace = $this->config('command_namespace');
+            $handler_namespace = $this->config('handler_namespace');
+            $locator           = $this->config('locator');
 
-    		return $app->make($locator, [$this->app, $command_namespace, $handler_namespace]);
-    	});
+            return $app->make($locator, [$this->app, $command_namespace, $handler_namespace]);
+        });
     }
 
 
@@ -177,11 +177,11 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function registerMiddleware()
     {
-    	$this->app->bind('tactician.middleware', function() {
+        $this->app->bind('tactician.middleware', function() {
 
-	    	$middleware = $this->config('middleware');
+            $middleware = $this->config('middleware');
 
-	    	$resolved   = array_map(function($name) {
+            $resolved   = array_map(function($name) {
 
                 if (is_string($name)) {
                     return $this->app->make($name);
@@ -189,13 +189,13 @@ class TacticianServiceProvider extends ServiceProvider
 
                 return $name;
 
-	    	}, $middleware);
+            }, $middleware);
 
-	    	$resolved[] = $this->app['tactician.handler'];
+            $resolved[] = $this->app['tactician.handler'];
 
-	    	return $resolved;
+            return $resolved;
 
-	    });
+        });
     }
 
     /**

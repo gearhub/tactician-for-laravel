@@ -29,7 +29,7 @@ trait DispatchesCommands
      */
     protected function dispatchCommandFrom($command, ArrayAccess $source, array $extras = [])
     {
-    	return app('tactician.dispatcher')->dispatchFrom($command, $source, $extras);
+        return app('tactician.dispatcher')->dispatchFrom($command, $source, $extras);
     }
 
     /**
