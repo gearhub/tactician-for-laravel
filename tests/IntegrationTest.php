@@ -23,11 +23,11 @@ class IntegrationTest extends PHPUnit_Framework_TestCase
 {
 	public function setUp()
 	{
-		$this->container          = Mockery::mock(Container::class);
-		$this->locator            = new Locator($this->container, 'GearHub\Tactician\Tests\Stubs', 'GearHub\Tactician\Tests\Stubs');
-        $this->handler_middleware = new CommandHandlerMiddleware(new ClassNameExtractor(), $this->locator, new HandleInflector());
-        $this->commandbus         = new CommandBus([$this->handler_middleware]);
-        $this->dispatcher         = new Dispatcher($this->commandbus);
+        $this->container         = Mockery::mock(Container::class);
+        $this->locator           = new Locator($this->container, 'GearHub\Tactician\Tests\Stubs', 'GearHub\Tactician\Tests\Stubs');
+        $this->handlerMiddleware = new CommandHandlerMiddleware(new ClassNameExtractor(), $this->locator, new HandleInflector());
+        $this->commandbus        = new CommandBus([$this->handlerMiddleware]);
+        $this->dispatcher        = new Dispatcher($this->commandbus);
 	}
 
 	public function tearDown()

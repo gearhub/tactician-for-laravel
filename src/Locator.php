@@ -20,48 +20,48 @@ class Locator implements HandlerLocator
      *
      * @var string
      */
-    protected $command_namespace;
+    protected $commandNamespace;
 
     /**
      * Base namespace for command handlers.
      *
      * @var string
      */
-    protected $handler_namespace;
+    protected $handlerNamespace;
 
     /**
      * Create new instance of Locator.
      *
      * @param  Illuminate\Contracts\Container\Container $container
-     * @param  string                                   $command_namespace
-     * @param  string                                   $handler_namespace
+     * @param  string                                   $commandNamespace
+     * @param  string                                   $handlerNamespace
      *
      * @return void
      */
-    public function __construct(Container $container, $command_namespace, $handler_namespace)
+    public function __construct(Container $container, $commandNamespace, $handlerNamespace)
     {
         $this->container         = $container;
-        $this->command_namespace = $command_namespace;
-        $this->handler_namespace = $handler_namespace;
+        $this->commandNamespace = $commandNamespace;
+        $this->handlerNamespace = $handlerNamespace;
     }
 
     /**
      * Attempts to find the command's respective handler.
      *
-     * @param  string $command_name
+     * @param  string $commandName
      *
      * @return mixed
      *
      * @throws MissingHandlerException
      */
-    public function getHandlerForCommand($command_name)
+    public function getHandlerForCommand($commandName)
     {
-        $command     = str_replace($this->command_namespace, '', $command_name);
-        $handlerName = $this->handler_namespace.'\\'.trim($command, '\\').'Handler';
+        $command     = str_replace($this->commandNamespace, '', $commandName);
+        $handlerName = $this->handlerNamespace.'\\'.trim($command, '\\').'Handler';
 
         if (!class_exists($handlerName)) {
 
-            throw MissingHandlerException::forCommand($command_name);
+            throw MissingHandlerException::forCommand($commandName);
 
         }
 

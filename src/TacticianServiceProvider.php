@@ -151,11 +151,11 @@ class TacticianServiceProvider extends ServiceProvider
     {
         $this->app->singleton('tactician.locator', function($app) {
 
-            $command_namespace = $this->config('command_namespace');
-            $handler_namespace = $this->config('handler_namespace');
+            $commandNamespace = $this->config('command_namespace');
+            $handlerNamespace = $this->config('handler_namespace');
             $locator           = $this->config('locator');
 
-            return (new $locator($this->app, $command_namespace, $handler_namespace));
+            return (new $locator($this->app, $commandNamespace, $handlerNamespace));
         });
     }
 

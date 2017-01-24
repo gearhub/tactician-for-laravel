@@ -30,8 +30,8 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	 */
 	public function it_should_contain_the_correct_namespaces()
 	{
-		$this->assertEquals($this->locator->command_namespace, 'GearHub\Tactician\Tests\Stubs');
-		$this->assertEquals($this->locator->handler_namespace, 'GearHub\Tactician\Tests\Stubs');
+		$this->assertEquals($this->locator->commandNamespace, 'GearHub\Tactician\Tests\Stubs');
+		$this->assertEquals($this->locator->handlerNamespace, 'GearHub\Tactician\Tests\Stubs');
 	}
 
 	/**
