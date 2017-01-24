@@ -2,14 +2,15 @@
 
 namespace GearHub\Tactician;
 
-use Illuminate\Support\Collection;
-use Illuminate\Support\ServiceProvider;
-
-use League\Tactician\CommandBus;
-use League\Tactician\Handler\CommandHandlerMiddleware;
-
+use GearHub\Tactician\Contracts\Bus\Dispatcher as DispatcherContract;
 use GearHub\Tactician\Dispatcher;
 use GearHub\Tactician\Locator;
+use Illuminate\Support\Collection;
+use Illuminate\Support\ServiceProvider;
+use League\Tactician\CommandBus;
+use League\Tactician\Handler\CommandHandlerMiddleware;
+use League\Tactician\Handler\CommandNameExtractor\CommandNameExtractor;
+use League\Tactician\Handler\MethodNameInflector\MethodNameInflector;
 
 class TacticianServiceProvider extends ServiceProvider
 {
@@ -52,27 +53,27 @@ class TacticianServiceProvider extends ServiceProvider
      */
     protected function bootBindings()
     {
-        $this->app['League\Tactician\CommandBus'] = function($app) {
+        $this->app[CommandBus::class] = function($app) {
             return $app['tactician.commandbus'];
         };
 
-        $this->app['League\Tactician\Handler\CommandHandlerMiddleware'] = function($app) {
+        $this->app[CommandHandlerMiddleware::class] = function($app) {
             return $app['tactician.handler'];
         };
 
-        $this->app['League\Tactician\Handler\CommandNameExtractor\CommandNameExtractor'] = function($app) {
+        $this->app[CommandNameExtractor::class] = function($app) {
             return $app['tactician.extractor'];
         };
 
-        $this->app['League\Tactician\Handler\MethodNameInflector\MethodNameInflector'] = function($app) {
+        $this->app[MethodNameInflector::class] = function($app) {
             return $app['tactician.inflector'];
         };
 
-        $this->app['League\Tactician\Handler\Locator\HandlerLocator'] = function($app) {
+        $this->app[HandlerLocator::class] = function($app) {
             return $app['tactician.locator'];
         };
 
-        $this->app['GearHub\Tactician\Contracts\Bus\Dispatcher'] = function($app) {
+        $this->app[DispatcherContract::class] = function($app) {
             return $app['tactician.dispatcher'];
         };
     }

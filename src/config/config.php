@@ -31,7 +31,7 @@ return [
     | League\Tactician\Handler\CommandNameExtractor\CommandNameExtractor interface.
     |
     */
-    'extractor' => 'League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor',
+    'extractor' => League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     | League\Tactician\Handler\MethodNameInflector\MethodNameInflector interface.
     |
     */
-    'inflector' => 'League\Tactician\Handler\MethodNameInflector\HandleInflector',
+    'inflector' => League\Tactician\Handler\MethodNameInflector\HandleInflector::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return [
     | implement League\Tactician\Handler\Locator\HandlerLocator interface.
     |
     */
-    'locator' => 'GearHub\Tactician\Locator',
+    'locator' => GearHub\Tactician\Locator::class,
 
     /*
     |--------------------------------------------------------------------------

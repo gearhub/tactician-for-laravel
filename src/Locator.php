@@ -40,7 +40,7 @@ class Locator implements HandlerLocator
      */
     public function __construct(Container $container, $commandNamespace, $handlerNamespace)
     {
-        $this->container         = $container;
+        $this->container        = $container;
         $this->commandNamespace = $commandNamespace;
         $this->handlerNamespace = $handlerNamespace;
     }
